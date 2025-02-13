@@ -66,10 +66,7 @@ body {
  border-radius: 1rem;
  text-align: center;
  box-shadow: 0 0 0.5rem;
-}
-
-.timer {
-  font-size: 5rem;
+ width: 30rem;
 }
 
 .start {
@@ -93,15 +90,11 @@ body {
   height: 5rem;
 }
 
-.start:active {
-  background-color: rgba(0, 255, 0, 0.5);
-}
-
-.restart:active {
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
 i {
   font-size: 2rem;
   color: #fff;
+}
+
+.timer {
+  font-size: 5rem;
 }
