@@ -11,6 +11,8 @@ let secondsCount = 0;
 let minutesCount = 0;
 let hoursCount = 0;
 
+let isCounting = false;
+
 function startCount() {
   timer = setInterval(() => {
     secondsCount++;
@@ -47,24 +49,23 @@ function pauseCount() {
 }
 
 start.addEventListener("click", () => {
-  if (secondsCount === 0 && minutesCount === 0 && hoursCount === 0) {
+  if (!isCounting) {
+    isCounting = true;
     start.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     start.style.backgroundColor = "rgb(255, 165, 0)";
     startCount();
-  } else if (start.style.backgroundColor === "rgb(255, 165, 0)") {
+  } else if (isCounting) {
+    isCounting = false;
     start.innerHTML = `<i class="fa-solid fa-play"></i>`;
     start.style.backgroundColor = "rgb(0, 255, 0)";
     pauseCount();
-  } else {
-    start.innerHTML = `<i class="fa-solid fa-pause"></i>`;
-    start.style.backgroundColor = "rgb(255, 165, 0)";
-    startCount();
   }
 });
 
 restart.addEventListener("click", () => {
   start.innerHTML = `<i class="fa-solid fa-play"></i>`;
   start.style.backgroundColor = "rgb(0, 255, 0)";
+  isCounting = false;
   pauseCount();
   secondsCount = 0;
   minutesCount = 0;
